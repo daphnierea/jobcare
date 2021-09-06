@@ -18,7 +18,7 @@
                         </p> -->
                         <v-divider class="mt-6"></v-divider>
                         <p class="headline font-weight-bold">
-                            Using SMSOn API
+                            Using JobCare API
                         </p>
                         <p class="">API Request:</p>
 
@@ -32,13 +32,13 @@
                                 class="error--text"
                                 style="display: inline-block;"
                             >
-                                https://www.smson.ph/api/v1/send-sms
+                                https://www.JobCare.ph/api/v1/send-sms
                             </p>
                         </div>
                         <p class="">Header:</p>
-                        <pre><code class="HTTP p-3 mb-0 hljs"><span class="hljs-attribute">SmsOn-Auth</span>:  { email:password in base64 format }
+                        <pre><code class="HTTP p-3 mb-0 hljs"><span class="hljs-attribute">JobCare-Auth</span>:  { email:password in base64 format }
 </code></pre>
-                        <pre><code class="HTTP p-3 mb-0 hljs"><span class="hljs-attribute">SmsOn-ApiKey</span>: {{this.subscriber.api_key ? this.subscriber.api_key : '{PROJECT_API_KEY}'}}</code></pre>
+                        <pre><code class="HTTP p-3 mb-0 hljs"><span class="hljs-attribute">JobCare-ApiKey</span>: {{this.subscriber.api_key ? this.subscriber.api_key : '{PROJECT_API_KEY}'}}</code></pre>
                         <p class="">Body:</p>
                         <table
                             class="mt-2 mb-1 table table-sm table-bordered table-striped w-100"
@@ -93,7 +93,7 @@
                                     </td>
                                     <td>Yes</td>
                                     <td class="hidden-sm-and-down">
-                                        Hello from SMSOn!
+                                        Hello from JobCare!
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,7 +189,7 @@ export default {
         $curl = curl_init();
 
         curl_setopt_array($curl, <span class="hljs-keyword">array</span>(
-        CURLOPT_URL =&gt; <span class="hljs-string">"https://www.smson.ph/api/v1/send-sms"</span>,
+        CURLOPT_URL =&gt; <span class="hljs-string">"https://www.JobCare.ph/api/v1/send-sms"</span>,
         CURLOPT_RETURNTRANSFER =&gt; <span class="hljs-keyword">true</span>,
         CURLOPT_ENCODING =&gt; <span class="hljs-string">""</span>,
         CURLOPT_MAXREDIRS =&gt; <span class="hljs-number">10</span>,
@@ -197,10 +197,10 @@ export default {
         CURLOPT_FOLLOWLOCATION =&gt; <span class="hljs-keyword">false</span>,
         CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST =&gt; <span class="hljs-string">"POST"</span>,
-        CURLOPT_POSTFIELDS =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'Hello from SmsOn!'</span>,<span class="hljs-string">'phone_number'</span> =&gt; <span class="hljs-string">'09051406888'</span>),
+        CURLOPT_POSTFIELDS =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">'message'</span> =&gt; <span class="hljs-string">'Hello from JobCare!'</span>,<span class="hljs-string">'phone_number'</span> =&gt; <span class="hljs-string">'09051406888'</span>),
         CURLOPT_HTTPHEADER =&gt; <span class="hljs-keyword">array</span>(
-            <span class="hljs-string">"SmsOn-Auth: email:password combination in base64"</span>
-            <span class="hljs-string">"SmsOn-ApiKey: ${this.subscriber.api_key}</span>
+            <span class="hljs-string">"JobCare-Auth: email:password combination in base64"</span>
+            <span class="hljs-string">"JobCare-ApiKey: ${this.subscriber.api_key}</span>
             ),
         ));
 
@@ -226,11 +226,11 @@ export default {
 
 <span class="hljs-keyword">var</span> options = {
   <span class="hljs-string">'method'</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'www.smson.ph'</span>,
+  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'www.JobCare.ph'</span>,
   <span class="hljs-string">'path'</span>: <span class="hljs-string">'/api/v1/send-sms'</span>,
   <span class="hljs-string">'headers'</span>: {
-    <span class="hljs-string">'SmsOn-Auth'</span>: email:password combination in base64
-    <span class="hljs-string">'SmsOn-ApiKey'</span>: ${this.subscriber.api_key}
+    <span class="hljs-string">'JobCare-Auth'</span>: email:password combination in base64
+    <span class="hljs-string">'JobCare-ApiKey'</span>: ${this.subscriber.api_key}
   }
 };
 
@@ -254,7 +254,7 @@ export default {
 <span class="hljs-keyword">var</span> postData = <span class="hljs-string">'------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="message"
 
-Hello from SmsOn!
+Hello from JobCare!
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="phone_number"
 
@@ -273,13 +273,13 @@ req.end();
                             language: "Python",
                             code: `<pre><code class="Python p-3 mb-0 hljs">
 <span class="hljs-keyword">import</span> requests
-url = <span class="hljs-string">'https://www.smson.ph/api/v1/send-sms'</span>
-payload = {<span class="hljs-string">'message'</span>: <span class="hljs-string">'Hello from SmsOn!'</span>,
+url = <span class="hljs-string">'https://www.JobCare.ph/api/v1/send-sms'</span>
+payload = {<span class="hljs-string">'message'</span>: <span class="hljs-string">'Hello from JobCare!'</span>,
 <span class="hljs-string">'phone_number'</span>: <span class="hljs-string">'09051406888'</span>}
 files = {}
 headers = {
-  <span class="hljs-string">'SmsOn-Auth'</span>: email:password combination in base64,
-  <span class="hljs-string">'SmsOn-ApiKey'</span>: ${this.subscriber.api_key}
+  <span class="hljs-string">'JobCare-Auth'</span>: email:password combination in base64,
+  <span class="hljs-string">'JobCare-ApiKey'</span>: ${this.subscriber.api_key}
 }
 response = requests.request(<span class="hljs-string">'POST'</span>, url, headers = headers, data = payload, files = files, allow_redirects=<span class="hljs-literal">False</span>, timeout=undefined, allow_redirects=false)
 print(response.text)
@@ -292,19 +292,19 @@ print(response.text)
 <span class="hljs-keyword">require</span> <span class="hljs-string">"uri"</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">"net/http"</span>
 
-url = URI(<span class="hljs-string">"https://www.smson.ph/api/v1/send-sms"</span>)
+url = URI(<span class="hljs-string">"https://www.JobCare.ph/api/v1/send-sms"</span>)
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = <span class="hljs-literal">true</span>
 
 request = Net::HTTP::Post.new(url)
-request[<span class="hljs-string">"SmsOn-Auth"</span>] = email:password combination in base64
-request[<span class="hljs-string">"SmsOn-ApiKey"</span>] = ${this.subscriber.api_key}
+request[<span class="hljs-string">"JobCare-Auth"</span>] = email:password combination in base64
+request[<span class="hljs-string">"JobCare-ApiKey"</span>] = ${this.subscriber.api_key}
 request[<span class="hljs-string">"content-type"</span>] = <span class="hljs-string">'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span>
 request.body = <span class="hljs-string">'------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="message"
 
-Hello from SmsOn!
+Hello from JobCare!
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="phone_number"
 
@@ -320,16 +320,16 @@ puts response.read_body
                             language: "jQuery",
                             code: `<pre><code class="Javascript p-3 mb-0 hljs">
 <span class="hljs-keyword">var</span> form = <span class="hljs-keyword">new</span> FormData();
-form.append(<span class="hljs-string">"message"</span>, <span class="hljs-string">"Hello from SmsOn!"</span>);
+form.append(<span class="hljs-string">"message"</span>, <span class="hljs-string">"Hello from JobCare!"</span>);
 form.append(<span class="hljs-string">"phone_number"</span>, <span class="hljs-string">"09051406888"</span>);
 
 <span class="hljs-keyword">var</span> settings = {
-  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://www.smson.ph/api/v1/send-sms"</span>,
+  <span class="hljs-string">"url"</span>: <span class="hljs-string">"https://www.JobCare.ph/api/v1/send-sms"</span>,
   <span class="hljs-string">"method"</span>: <span class="hljs-string">"POST"</span>,
   <span class="hljs-string">"timeout"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-string">"headers"</span>: {
-    <span class="hljs-string">"SmsOn-Auth"</span>: email:password combination in base64,
-    <span class="hljs-string">"SmsOn-ApiKey"</span>: ${this.subscriber.api_key}
+    <span class="hljs-string">"JobCare-Auth"</span>: email:password combination in base64,
+    <span class="hljs-string">"JobCare-ApiKey"</span>: ${this.subscriber.api_key}
   },
   <span class="hljs-string">"processData"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-string">"mimeType"</span>: <span class="hljs-string">"multipart/form-data"</span>,
@@ -346,14 +346,14 @@ $.ajax(settings).done(<span class="hljs-function"><span class="hljs-keyword">fun
                             language: "Dart",
                             code: `<pre><code class="Javascript p-3 mb-0 hljs">
 <span class="hljs-keyword">var</span> headers = {
-  <span class="hljs-string">"SmsOn-Auth"</span>: <span class="hljs-string">"email:password combination in base64"</span>,
-  <span class="hljs-string">"SmsOn-ApiKey"</span>: <span class="hljs-string">"${this.subscriber.api_key}</span>
+  <span class="hljs-string">"JobCare-Auth"</span>: <span class="hljs-string">"email:password combination in base64"</span>,
+  <span class="hljs-string">"JobCare-ApiKey"</span>: <span class="hljs-string">"${this.subscriber.api_key}</span>
 };
 
-<span class="hljs-keyword">var</span> request = http.MultipartRequest(<span class="hljs-string">"POST"</span>, Uri.parse(<span class="hljs-string">"https://www.smson.ph/api/v1/send-sms"</span>));
+<span class="hljs-keyword">var</span> request = http.MultipartRequest(<span class="hljs-string">"POST"</span>, Uri.parse(<span class="hljs-string">"https://www.JobCare.ph/api/v1/send-sms"</span>));
 request.fields.addAll({
   <span class="hljs-string">"phone_number"</span>: <span class="hljs-string">"09051406888"</span> ,
-  <span class="hljs-string">"message"</span>: <span class="hljs-string">"Hello from SmsOn!"</span>,
+  <span class="hljs-string">"message"</span>: <span class="hljs-string">"Hello from JobCare!"</span>,
 });
 
 request.headers.addAll(headers);

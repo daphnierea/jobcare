@@ -415,7 +415,7 @@
                                     Status <br />
                                 </v-col>
                                 <v-col class="text-right">
-                                    <strong class="black--text">SMSOn </strong
+                                    <strong class="black--text">JobCare </strong
                                     ><br />
                                     <strong class="black--text"
                                         >₱ {{ credit }}</strong
@@ -546,7 +546,7 @@
                                     Status <br />
                                 </v-col>
                                 <v-col class="text-right">
-                                    <strong class="black--text">SMSOn </strong
+                                    <strong class="black--text">JobCare </strong
                                     ><br />
                                     <strong class="black--text"
                                         >₱

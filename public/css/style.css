@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /
 :root {
-  --bs-blue: #F59B21;
+  --bs-blue: #1976D2;
   --bs-indigo: #6610f2;
   --bs-purple: #8ECF8D;
   --bs-pink: #d63384;
@@ -14,7 +14,7 @@
   --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
-  --bs-primary: #F59B21;
+  --bs-primary: #1976D2;
   --bs-secondary: #8ECF8D;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -22,7 +22,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-font-sans-serif:  "Lexend", sans-serif !important;
+  --bs-font-sans-serif:  "Roboto", sans-serif !important;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
@@ -41,7 +41,7 @@
 
 body {
   margin: 0;
-  font-family:  "Lexend", sans-serif !important;
+  font-family:  "Roboto", sans-serif !important;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -64,7 +64,7 @@ hr:not([size]) {
 }
 
 h1, h2, h3, h4, h5, h6, .display-1 {
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     color: #000;
   }
 
@@ -202,7 +202,7 @@ sup {
 }
 
 a {
-  color: #F59B21;
+  color: #1976D2;
   text-decoration: underline;
 }
 a:hover {
@@ -451,16 +451,15 @@ progress {
 }
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
-  font-family: "Lexend", sans-serif !important;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif !important;
 }
 
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
   font-weight: 300;
   line-height: 1.2;
-  font-family: "Lexend", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
 }
 @media (min-width: 1200px) {
   .display-1 {
@@ -2435,8 +2434,8 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(41, 55, 240, 0.25);
 }
 .form-check-input:checked {
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .form-check-input:checked[type=checkbox] {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
@@ -2445,8 +2444,8 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -2523,7 +2522,7 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #F59B21;
+  background-color: #1976D2;
   border: 0;
   border-radius: 1rem;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2552,7 +2551,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #F59B21;
+  background-color: #1976D2;
   border: 0;
   border-radius: 1rem;
   -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2960,8 +2959,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff !important;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .btn-primary:hover {
   color: #fff;
@@ -2977,15 +2976,15 @@ textarea.form-control-lg {
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #8ECF8D;
-  border-color: #F59B21;
+  border-color: #1976D2;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.25rem rgba(245, 155, 33, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 
 .btn-secondary {
@@ -3025,12 +3024,12 @@ textarea.form-control-lg {
 }
 .btn-success:hover {
   color: #fff;
-  background-color: #157347;
+  background-color: #90CAF9;
   border-color: #146c43;
 }
 .btn-check:focus + .btn-success, .btn-success:focus {
   color: #fff;
-  background-color: #157347;
+  background-color: #90CAF9;
   border-color: #146c43;
   box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
 }
@@ -3199,27 +3198,27 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  color: #F59B21;
-  border-color: #F59B21;
+  color: #1976D2;
+  border-color: #1976D2;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
   box-shadow: 0 0 0 0.25rem rgba(41, 55, 240, 0.5);
 }
 .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #fff;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
   box-shadow: 0 0 0 0.25rem rgba(41, 55, 240, 0.5);
 }
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-  color: #F59B21;
+  color: #1976D2;
   background-color: transparent;
 }
 
@@ -3400,7 +3399,7 @@ textarea.form-control-lg {
 
 .btn-link {
   font-weight: 500;
-  color: #F59B21;
+  color: #1976D2;
   text-decoration: underline;
 }
 .btn-link:hover {
@@ -3699,7 +3698,7 @@ textarea.form-control-lg {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #F59B21;
+  background-color: #1976D2;
 }
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: #adb5bd;
@@ -3740,7 +3739,7 @@ textarea.form-control-lg {
 }
 .dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
   color: #fff;
-  background-color: #F59B21;
+  background-color: #1976D2;
 }
 .dropdown-menu-dark .dropdown-item.disabled, .dropdown-menu-dark .dropdown-item:disabled {
   color: #adb5bd;
@@ -3863,7 +3862,7 @@ textarea.form-control-lg {
   display: block !important;
   padding: 0.5rem 1rem !important;
   font-weight: normal !important;
-  font-family: "Lexend", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   text-decoration: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3873,7 +3872,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #F59B21 !important;
+  color: #1976D2 !important;
 }
 
 .nav-link.disabled {
@@ -3922,7 +3921,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #F59B21;
+  background-color: #1976D2;
 }
 
 .nav-fill > .nav-link,
@@ -4567,7 +4566,7 @@ textarea.form-control-lg {
 .page-link {
   position: relative;
   display: block;
-  color: #F59B21;
+  color: #1976D2;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -4598,8 +4597,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -4795,7 +4794,7 @@ textarea.form-control-lg {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #F59B21;
+  background-color: #1976D2;
   transition: width 0.6s ease;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4878,8 +4877,8 @@ textarea.form-control-lg {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #F59B21;
-  border-color: #F59B21;
+  background-color: #1976D2;
+  border-color: #1976D2;
 }
 .list-group-item + .list-group-item {
   border-top-width: 0;
@@ -5525,7 +5524,7 @@ textarea.form-control-lg {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: "Lexend", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   font-style: normal;
   font-weight: 500;
   line-height: 1.5;
@@ -5627,7 +5626,7 @@ textarea.form-control-lg {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: "Lexend", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   font-style: normal;
   font-weight: 500;
   line-height: 1.5;
@@ -6118,7 +6117,7 @@ textarea.form-control-lg {
 }
 
 .link-primary {
-  color: #F59B21;
+  color: #1976D2;
 }
 .link-primary:hover, .link-primary:focus {
   color: #8ECF8D;
@@ -6521,7 +6520,7 @@ textarea.form-control-lg {
 }
 
 .border-primary {
-  border-color: #F59B21 !important;
+  border-color: #1976D2 !important;
 }
 
 .border-secondary {
@@ -7350,7 +7349,7 @@ textarea.form-control-lg {
 
 /* rtl:end:remove */
 .text-primary {
-  color: #F59B21 !important;
+  color: #1976D2 !important;
 }
 
 .text-secondary {
@@ -7406,7 +7405,7 @@ textarea.form-control-lg {
 }
 
 .bg-primary {
-  background-color: #F59B21 !important;
+  background-color: #1976D2 !important;
 }
 
 .bg-secondary {
@@ -10859,15 +10858,15 @@ html {
 }
 
 .bg-gradient-primary-to-secondary {
-  background: linear-gradient(45deg, #F59B21, #8ECF8D) !important;
+  background: linear-gradient(45deg, #1976D2, #8ECF8D) !important;
 }
 
 .font-alt {
-  font-family: "Lexend", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(#F59B21, #8ECF8D);
+  background: -webkit-linear-gradient(#1976D2, #8ECF8D);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10985,7 +10984,7 @@ section.cta:before {
   stop-color: #8ECF8D;
 }
 .features-device-mockup .circle .gradient-end-color {
-  stop-color: #F59B21;
+  stop-color: #1976D2;
 }
 .features-device-mockup .shape-1 {
   position: absolute;
@@ -11000,7 +10999,7 @@ section.cta:before {
   position: absolute;
   height: 0.75rem;
   width: 0.75rem;
-  fill: #F59B21;
+  fill: #1976D2;
   bottom: 15%;
   left: 10%;
 }
@@ -11097,14 +11096,14 @@ footer a:hover, footer a:active, footer a:focus {
   stop-color: #8ECF8D;
 }
 .masthead .masthead-device-mockup .circle .gradient-end-color {
-  stop-color: #F59B21;
+  stop-color: #1976D2;
 }
 .masthead .masthead-device-mockup .shape-1 {
   position: absolute;
   height: 1rem;
   width: 1rem;
   transform: rotate(-10deg);
-  fill: #F59B21;
+  fill: #1976D2;
   bottom: 15%;
   left: 10%;
 }
@@ -11170,8 +11169,30 @@ footer a:hover, footer a:active, footer a:focus {
 # Landing
 --------------------------------------------------------------*/
 
-#quote {
-    font-family: "Lexend", sans-serif !important;
+#hero {
+    height: 94vh;
+    background: #ffecea;
+
+}
+
+.hero-title{
+    font-size: 4em;
+}
+
+#jobpost{
+    font-family: "Roboto", sans-serif !important;
+}
+/*--------------------------------------------------------------
+# Job Post
+--------------------------------------------------------------*/
+.job-name{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.job-payment{
+    font-weight: bold;
+    font-size: 3em;
 }
 
 
@@ -11181,11 +11202,11 @@ footer a:hover, footer a:active, footer a:focus {
 .partner span{
     text-align: center;
     padding: 0 0 70px;
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 50px;
-    color: #F59B21;
+    color: #1976D2;
 }
 
 #orange {
@@ -11273,7 +11294,7 @@ footer a:hover, footer a:active, footer a:focus {
   }
 
   .faq .title {
-    font-family: "Lexend", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .faq .faq-list ul {
@@ -11295,7 +11316,7 @@ footer a:hover, footer a:active, footer a:focus {
   .faq .faq-list a {
     display: block;
     position: relative;
-    font-family: "Lexend", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
@@ -11321,13 +11342,13 @@ footer a:hover, footer a:active, footer a:focus {
 
   .faq .faq-list p {
     margin-bottom: 0;
-    font-family: "Lexend", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: normal;
     padding: 10px 0 0 0;
   }
 
   .faq .faq-list p strong{
-    color: #F59B21;
+    color: #1976D2;
   }
 
   .faq .faq-list .icon-show {
@@ -11364,7 +11385,7 @@ footer a:hover, footer a:active, footer a:focus {
 footer #footer {
     padding: 5rem 0 2.5rem 0;
     background: #353535;
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
   }
 
 
@@ -11384,13 +11405,13 @@ footer #footer {
 
   #footer p {
     color:#ffffff !important;
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     font-size: 1em;
     font-weight: 400;
   }
 
   #footer .copyright {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
   }
 
 
@@ -11420,7 +11441,7 @@ footer #footer {
   }
 
   .list-unstyled {
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     font-size: 1.2em;
     font-weight: 400;
   }
@@ -11508,7 +11529,7 @@ footer #footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-radius: 25px;
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
     font-weight: 500 !important;
   }
 
@@ -11526,7 +11547,7 @@ footer #footer {
   }
 
   .dashboard-profile {
-      font-family: "Lexend", sans-serif !important;
+      font-family: "Roboto", sans-serif !important;
   }
 
   .dashboard-profile-name {
@@ -11552,11 +11573,11 @@ footer #footer {
   .upgrade-card{
       border-radius:20px !important;
       height: 150px !important;
-      background: #F59B21;
+      background: #1976D2;
   }
 
   .payment-instruction {
-      font-family: "Lexend", sans-serif !important;
+      font-family: "Roboto", sans-serif !important;
   }
 
   .payment-instruction strong {
@@ -11568,7 +11589,7 @@ footer #footer {
   # Plan
   --------------------------------------------------------------*/
   #plan {
-      font-family: "Lexend", sans-serif !important;
+      font-family: "Roboto", sans-serif !important;
   }
 
   #plan .heading-1{
@@ -11579,7 +11600,7 @@ footer #footer {
 
   #plan .heading-2{
     font-weight: bold !important;
-    color: #F59B21;
+    color: #1976D2;
     font-size: 3em;
     line-height: 0.5;
 }
@@ -11619,7 +11640,7 @@ footer #footer {
     padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
-    background-color: #F59B21;
+    background-color: #1976D2;
   } */
 
   .sms-name{
@@ -11629,7 +11650,7 @@ footer #footer {
   }
 
   .sms-rate{
-    color: #F59B21;
+    color: #1976D2;
     font-weight: bold;
     font-size: medium;
   }
@@ -11641,14 +11662,14 @@ footer #footer {
 }
 
  .package-rate{
-    color: #F59B21;
+    color: #1976D2;
     font-weight: bold;
     font-size: 3em;
  }
 
  @media (min-width: 1000px) {
     .package-rate{
-        color: #F59B21;
+        color: #1976D2;
         font-weight: bold;
         font-size: 3em;
      }
@@ -11677,7 +11698,7 @@ footer #footer {
   }
 
   .purchase-history{
-      font-family: "Lexend", sans-serif !important;
+      font-family: "Roboto", sans-serif !important;
   }
 
   .purchase-history-title{
@@ -11687,7 +11708,7 @@ footer #footer {
   @media (max-width: 575.98px) {
     #plan .heading-2{
         font-weight: bold !important;
-        color: #F59B21;
+        color: #1976D2;
         font-size: 3em;
         line-height: 1;
     }
@@ -11703,13 +11724,13 @@ footer #footer {
   --------------------------------------------------------------*/
 
   #documentation{
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
 
 
   }
 
   #documentation .headline{
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
  }
 
   #documentation span{
@@ -11751,6 +11772,6 @@ footer #footer {
 }
 
 .hljs-attribute, .hljs-bullet, .hljs-literal, .hljs-symbol {
-    color: #F59B21;
+    color: #1976D2;
 }
 

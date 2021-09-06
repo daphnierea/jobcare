@@ -907,7 +907,7 @@ export default {
 }
 
 #otp {
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
 }
 
 #otp span {
@@ -916,7 +916,7 @@ export default {
 }
 
 #otp span strong {
-    color: #f59b21;
+    color: #1976d2;
     font-weight: bold !important;
 }
 
@@ -930,7 +930,7 @@ export default {
     justify-content: center;
     align-content: center;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    font-family: "Lexend", sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
 }
 
 @media (max-width: 576px) {
@@ -944,7 +944,7 @@ export default {
         justify-content: center;
         align-content: center;
         border: 1px solid rgba(0, 0, 0, 0.3);
-        font-family: "Lexend", sans-serif !important;
+        font-family: "Roboto", sans-serif !important;
     }
 }
 
@@ -953,7 +953,7 @@ export default {
 }
 
 input:focus.otp-input {
-    outline: 2px solid #f59b21 !important;
+    outline: 2px solid #1976d2 !important;
 }
 
 /* textarea:focus,

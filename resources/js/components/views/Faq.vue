@@ -118,7 +118,7 @@ export default {
                     href: "#faq-list-4",
                     id: "faq-list-4",
                     question: "How do I request custom sender name?",
-                    answer: `By default, <strong>SMSON</strong> is used as the default sender.
+                    answer: `By default, <strong>JobCare</strong> is used as the default sender.
                             You can request for your own custom sender name by <strong>Upgrading Plan</strong> on the menu,
                             then <strong>request sender name</strong>. You will receive an notification once your sender’s name is approved.
                             You can then apply your new custom sender’s name in your projects.`

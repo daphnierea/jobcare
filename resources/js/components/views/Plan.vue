@@ -148,7 +148,7 @@
                                         Sign up today for a <br />
                                         <span style="color: #8ECF8D;"
                                             >free </span
-                                        ><span style="color: #F59B21;"
+                                        ><span style="color: #1976D2;"
                                             >1-month trial!</span
                                         >
                                     </h1>
