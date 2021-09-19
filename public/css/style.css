@@ -11195,6 +11195,10 @@ footer a:hover, footer a:active, footer a:focus {
     font-size: 3em;
 }
 
+/* .job-post-card{
+    border-radius: 5% !important;
+} */
+
 
 /*--------------------------------------------------------------
 # Partner
@@ -11491,7 +11495,7 @@ footer #footer {
 
   .signin:before {
     content: "";
-    background: rgba(105, 191, 104, 0.4);
+    background: #ffecea;
     position: absolute;
     bottom: 0;
     top: 0;

@@ -77,25 +77,29 @@
                             cols="12"
                             md="4"
                         >
-                            <v-card elevation="9" color="secondary">
+                            <v-card elevation="9" class="rounded-xl">
                                 <v-card-text>
                                     <v-row>
-                                        <v-col>
+                                        <v-col
+                                            class="mb-0 align-content-center"
+                                        >
                                             <p class="job-name black--text">
                                                 {{ job.name }}
                                             </p>
-                                            <p class="job-type">
+                                            <p class="job-type subtitle-1">
                                                 {{ job.type }}
                                             </p>
                                         </v-col>
-                                        <v-col class="text-right">
+                                        <v-col
+                                            class="text-right mb-0 align-content-center"
+                                        >
                                             <p
                                                 class="job-payment  primary--text"
                                             >
                                                 ₱{{ job.payment }}
                                             </p>
                                             <p
-                                                class="job-date font-weight-normal"
+                                                class="job-date font-weight-normal subtitle-1"
                                             >
                                                 {{ job.date }}
                                             </p>
@@ -103,7 +107,12 @@
                                     </v-row>
                                 </v-card-text>
                                 <v-card-actions>
-                                    <v-btn rounded block color="primary" large
+                                    <v-btn
+                                        rounded
+                                        block
+                                        color="primary"
+                                        large
+                                        @click="loginDialog = true"
                                         >See More</v-btn
                                     >
                                 </v-card-actions>
@@ -131,12 +140,130 @@
                 <v-icon>mdi-arrow-up</v-icon>
             </v-btn>
         </v-scale-transition>
+
+        <v-dialog v-model="loginDialog">
+            <v-card width="500px"
+                ><v-row justify="center">
+                    <v-col cols="12" md="8">
+                        <v-container
+                            width="80vw"
+                            max-width="100vw"
+                            min-width="400"
+                            fluid
+                        >
+                            <v-row justify="center">
+                                <v-col id="column-1" cols="12" lg="8" class="">
+                                    <v-row justify="center" class="text-center">
+                                        <h1
+                                            class="pa-5 font-weight-bold primary--text"
+                                        >
+                                            SIGN-IN
+                                        </h1>
+                                    </v-row>
+                                    <v-row justify="center">
+                                        <v-col cols="12" md="7">
+                                            <v-card
+                                                class="transparent elevation-0"
+                                            >
+                                                <v-form
+                                                    ref="login"
+                                                    lazy-validation
+                                                >
+                                                    <v-card-text>
+                                                        <v-alert
+                                                            small
+                                                            type="error"
+                                                            v-if="error"
+                                                        >
+                                                            <span>{{
+                                                                error
+                                                            }}</span>
+                                                        </v-alert>
+                                                        <v-text-field
+                                                            v-model="email"
+                                                            label="Email"
+                                                            name="email"
+                                                            id="email"
+                                                            prepend-icon="mdi-account"
+                                                            :rules="
+                                                                rules.emailRules
+                                                            "
+                                                            type="text"
+                                                            @keydown.enter="
+                                                                login()
+                                                            "
+                                                        ></v-text-field>
+                                                        <v-text-field
+                                                            v-model="password"
+                                                            label="Password"
+                                                            id="password"
+                                                            name="password"
+                                                            prepend-icon="fa-lock"
+                                                            :append-icon="
+                                                                visible
+                                                                    ? 'mdi-eye-off'
+                                                                    : 'mdi-eye'
+                                                            "
+                                                            @click:append="
+                                                                visible = !visible
+                                                            "
+                                                            :rules="
+                                                                rules.passwordRules
+                                                            "
+                                                            :type="
+                                                                visible
+                                                                    ? 'text'
+                                                                    : 'password'
+                                                            "
+                                                            @keydown.enter="
+                                                                login()
+                                                            "
+                                                        ></v-text-field>
+                                                    </v-card-text>
+                                                </v-form>
+                                                <v-card-actions>
+                                                    <v-btn
+                                                        color="primary"
+                                                        large
+                                                        block
+                                                        @click="
+                                                            login(),
+                                                                (loader =
+                                                                    'loading')
+                                                        "
+                                                        class="ma-2"
+                                                        :loading="loading"
+                                                        :disabled="loading"
+                                                    >
+                                                        Sign-in
+                                                        <template v-slot:loader>
+                                                            <span
+                                                                class="custom-loader"
+                                                            >
+                                                                <v-icon light
+                                                                    >mdi-cached</v-icon
+                                                                >
+                                                            </span>
+                                                        </template>
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+                                    </v-row>
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                    </v-col>
+                </v-row></v-card
+            >
+        </v-dialog>
     </v-app>
 </template>
 <script>
 export default {
     data() {
         return {
+            loading: false,
             fab: null,
             color: "",
             flat: null,
@@ -149,27 +276,59 @@ export default {
                     date: "June 1, 2021"
                 },
                 {
-                    id: 1,
+                    id: 2,
                     name: "Plumbing",
                     type: "PartTime",
                     payment: "500",
                     date: "June 4, 2021"
                 },
                 {
-                    id: 1,
+                    id: 3,
                     name: "Electrician",
                     type: "PartTime",
                     payment: "500",
                     date: "July 12, 2021"
                 },
                 {
-                    id: 1,
+                    id: 4,
                     name: "Capenter",
                     type: "Fulltime",
                     payment: "500",
                     date: "August 3, 2021"
                 }
-            ]
+            ],
+            email: null,
+            password: null,
+            visible: false,
+            error: null,
+            rules: {
+                usernameRules: [
+                    v => !!v || "Username is required",
+                    v =>
+                        (!!v && v.length <= 255) ||
+                        "Username must be more than 255 characters"
+                ],
+                emailRules: [
+                    v => !!v || "E-mail is required",
+                    v =>
+                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                        "E-mail must be valid",
+                    v =>
+                        (!!v && v.length <= 255) ||
+                        "E-mail must be more than 255 characters"
+                ],
+                passwordRules: [
+                    v => !!v || "Password is required",
+                    v =>
+                        (!!v && v.length >= 6) ||
+                        "Password must be atleast 6 characters",
+                    v =>
+                        (!!v && v.length <= 255) ||
+                        "Password must be more than 255 characters"
+                ]
+            },
+            //Dialogs
+            loginDialog: false
         };
     },
 

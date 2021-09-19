@@ -69,7 +69,7 @@
                         :class="
                             this.$route.path == '/signin' ||
                             this.$route.path == '/signup'
-                                ? 'white--text mr-2 font-weight-normal'
+                                ? 'black--text mr-2 font-weight-normal'
                                 : 'black--text mr-2 font-weight-normal'
                         "
                         >Log in</span
@@ -126,7 +126,7 @@
 
 #btn-signup:hover,
 #btn-signup:focus {
-    background-color: #8ecf8d !important;
+    background-color: #62a4e6 !important;
 }
 </style>
 
