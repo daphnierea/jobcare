@@ -127,7 +127,7 @@ export default {
     data() {
         return {
             loading: false,
-            email: null,
+            username: null,
             password: null,
             visible: false,
             error: null,
@@ -166,77 +166,78 @@ export default {
 
     methods: {
         login() {
-            if (this.$refs.login.validate()) {
-                this.loading = true;
-                axios
-                    .post("/api/v1/login", {
-                        email: this.email,
-                        password: this.password
-                    })
-                    .then(response => {
-                        if (response.data.errors) {
-                            this.error = response.data.errors;
-                            return;
-                        }
-                        var token = response.data.token;
-                        var user_id = response.data.id;
-                        var profile_id = response.data.profile_id;
-                        var profile_role = response.data.profile_role;
-                        var user_type = response.data.role;
-                        // Create a local storage item
-                        sessionStorage.setItem("user-token", token);
-                        sessionStorage.setItem("user-type", user_type);
-                        sessionStorage.setItem("user-id", user_id);
-                        sessionStorage.setItem("profile-id", profile_id);
-                        sessionStorage.setItem("profile-role", profile_role);
+            this.$router.push("admin/dashboard");
+            // if (this.$refs.login.validate()) {
+            //     this.loading = true;
+            //     axios
+            //         .post("/api/v1/login", {
+            //             username: this.username,
+            //             password: this.password
+            //         })
+            //         .then(response => {
+            //             if (response.data.errors) {
+            //                 this.error = response.data.errors;
+            //                 return;
+            //             }
+            //             var token = response.data.token;
+            //             // var user_id = response.data.id;
+            //             // var profile_id = response.data.profile_id;
+            //             // var profile_role = response.data.profile_role;
+            //             // var user_type = response.data.role;
+            //             // Create a local storage item
+            //             sessionStorage.setItem("user-token", token);
+            //             // sessionStorage.setItem("user-type", user_type);
+            //             // sessionStorage.setItem("user-id", user_id);
+            //             // sessionStorage.setItem("profile-id", profile_id);
+            //             // sessionStorage.setItem("profile-role", profile_role);
 
-                        // Echo.connector.pusher.config.auth.headers[
-                        //     "Authorization"
-                        // ] = "Bearer " + token;
+            //             // Echo.connector.pusher.config.auth.headers[
+            //             //     "Authorization"
+            //             // ] = "Bearer " + token;
 
-                        // console.log(
-                        //     Echo.connector.pusher.config.auth.headers[
-                        //         "Authorization"
-                        //     ]
-                        // );
+            //             // console.log(
+            //             //     Echo.connector.pusher.config.auth.headers[
+            //             //         "Authorization"
+            //             //     ]
+            //             // );
 
-                        // Redirect user
-                        if (user_type == "ADMINISTRATOR")
-                            this.$router.push("admin/purchase-histories");
-                        else if (user_type == "SUBSCRIBER") {
-                            // var user_linkable_id = response.data.data.linkable.id
-                            // sessionStorage.setItem('user-linkable-id', user_linkable_id)
-                            this.$router.push("/dashboard");
-                        }
-                        swal.fire({
-                            position: "top-end",
-                            toast: true,
-                            type: "success",
-                            icon: "success",
-                            text: "Successfully Logined",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    })
-                    .catch(error => {
-                        if (error.response.data == "Unauthenticated.") {
-                            sessionStorage.clear();
-                            this.$router.push("/signin");
-                            swal.fire("Error!", error.response.data, "error");
-                        } else if (error.response.status == 403) {
-                            swal.fire(
-                                "Inactive Account!",
-                                error.response.data,
-                                "error"
-                            );
-                        } else {
-                            swal.fire("Invalid Credentials!", error, "error");
-                        }
-                    })
-                    .finally(x => {
-                        this.loading = false;
-                    });
-            }
+            //             // Redirect user
+            //             // if (user_type == "ADMINISTRATOR")
+            //             this.$router.push("admin/dashboard");
+            //             // else if (user_type == "HOSPITAL") {
+            //             //     this.$router.push("hospital/dashboard");
+            //             // } else if (user_type == "OCCUPANT") {
+            //             //     this.$router.push("/dashboard");
+            //             // }
+            //             swal.fire({
+            //                 position: "top-end",
+            //                 toast: true,
+            //                 type: "success",
+            //                 icon: "success",
+            //                 text: "Successfully Logined",
+            //                 showConfirmButton: false,
+            //                 timer: 1500
+            //             });
+            //         })
+            //         .catch(error => {
+            //             if (error.response.data == "Unauthenticated.") {
+            //                 sessionStorage.clear();
+            //                 this.$router.push("/login");
+            //                 swal.fire("Error!", error.response.data, "error");
+            //             } else if (error.response.status == 403) {
+            //                 swal.fire(
+            //                     "Inactive Account!",
+            //                     error.response.data,
+            //                     "error"
+            //                 );
+            //             } else {
+            //                 swal.fire("Invalid Credentials!", error, "error");
+            //             }
+            //         })
+            //         .finally(x => {
+            //             this.loading = false;
+            //         });
+            // }
         },
 
         onScroll(e) {
@@ -274,7 +275,9 @@ export default {
         if (sessionStorage.getItem("user-type")) {
             if (sessionStorage.getItem("user-type") == "ADMINISTRATOR") {
                 return next("admin/dashboard");
-            } else if (sessionStorage.getItem("user-type") == "SUBSCRIBER") {
+            } else if (sessionStorage.getItem("user-type") == "HOSPITAL") {
+                return next("hospital/dashboard");
+            } else if (sessionStorage.getItem("user-type") == "OCCUPANT") {
                 return next("/dashboard");
             }
         }
@@ -282,3 +285,41 @@ export default {
     }
 };
 </script>
+<style>
+.custom-loader {
+    animation: loader 1s infinite;
+    display: flex;
+}
+@-moz-keyframes loader {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes loader {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@-o-keyframes loader {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes loader {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+</style>

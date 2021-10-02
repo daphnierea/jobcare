@@ -13,9 +13,9 @@
                 v-for="(link, i) in links"
                 :key="i"
                 :to="link.to"
-                :active-class="color"
-                class="v-list-item"
+                active-class="primary"
                 v-if="userPermission(link.module)"
+                class="v-list-item"
             >
                 <v-list-item-action>
                     <v-icon>{{ link.icon }}</v-icon>
@@ -25,34 +25,6 @@
         </v-list>
         <template v-slot:append>
             <v-list dense>
-                <v-list-item
-                    to="developer"
-                    active-class="success"
-                    class="v-list-item"
-                >
-                    <v-list-item-action>
-                        <v-icon>mdi-file-code</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title class="subtitle-2"
-                            >Developer</v-list-item-title
-                        >
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item
-                    to="faq"
-                    active-class="success"
-                    class="v-list-item"
-                >
-                    <v-list-item-action>
-                        <v-icon>mdi-help-circle</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title class="subtitle-2"
-                            >Faqs</v-list-item-title
-                        >
-                    </v-list-item-content>
-                </v-list-item>
                 <v-list-item @click.stop="logout">
                     <v-list-item-action>
                         <v-icon>mdi-exit-to-app</v-icon>
@@ -83,50 +55,51 @@ export default {
         logo: "favicon.ico",
         links: [
             {
-                to: "/dashboard",
+                to: "/admin/dashboard",
                 icon: "mdi-view-dashboard",
                 text: "Dashboard",
-                module: "dashboard"
+                module: "adminDashboard"
             },
             {
-                to: "/admin/purchase-histories",
+                to: "/admin/jobs",
+                icon: "mdi-briefcase",
+                text: "Jobs",
+                module: "adminJob"
+            },
+            {
+                to: "/admin/employers",
+                icon: "mdi-account-tie",
+                text: "Employers",
+                module: "adminEmployer"
+            },
+            {
+                to: "/admin/employees",
+                icon: "mdi-briefcase-account",
+                text: "Employees",
+                module: "adminEmployee"
+            },
+            //Hospital
+            {
+                to: "/employer/dashboard",
                 icon: "mdi-view-dashboard",
-                text: "Purchase Request",
-                module: "request"
+                text: "Dashboard",
+                module: "employerDashboard"
             },
             {
-                to: "/admin/users",
-                icon: "mdi-account-group",
-                text: "Users",
-                module: "user"
-            },
-            {
-                to: "/contacts",
-                icon: "mdi-card-account-mail",
-                text: "Contacts",
-                module: "contact"
-            },
-            {
-                to: "/blast",
-                icon: "fab fa-telegram-plane",
-                text: "Blast",
-                module: "blast"
-            },
-            {
-                to: "/referrals",
-                icon: "mdi-handshake",
-                text: "Referrals",
-                module: "referral"
-            },
-            {
-                to: "/purchase-histories",
-                icon: "mdi-cart-variant",
-                text: "Purchase Histories",
-                module: "history"
+                to: "/employer/jobs",
+                icon: "mdi-briefcase",
+                text: "Jobs",
+                module: "employerJob"
             }
+            // {
+            //     to: "/employer/users",
+            //     icon: "mdi-account-circle",
+            //     text: "Users",
+            //     module: "employerUser"
+            // }
         ],
-        userRole: sessionStorage.getItem("user-type"),
-        profileRole: sessionStorage.getItem("profile-role")
+        // userRole: sessionStorage.getItem("user-type"),
+        userRole: "ADMINISTRATOR"
     }),
     computed: {
         ...mapState("app", ["color"]),
@@ -147,26 +120,28 @@ export default {
         ...mapMutations("app", ["setDrawer", "toggleDrawer"]),
         userPermission(module) {
             var modules = {
-                dashboard: true,
-                contact: true,
-                blast: true,
-                referral: false,
-                history: true
+                adminDashboard: true,
+                adminJob: true,
+                adminEmployer: true,
+                adminEmployee: true,
+                //hospital
+                employerDashboard: true,
+                employerRoJob: true
             };
             var permissions = {
                 ADMINISTRATOR: {
-                    user: true,
-                    request: true
+                    ...modules,
+                    employerDashboard: false,
+                    employerRoJob: false
                 },
-                SUBSCRIBER: {
-                    ...modules
+                HOSPITAL: {
+                    ...modules,
+                    adminDashboard: false,
+                    adminJob: false,
+                    adminEmployer: false,
+                    adminEmployee: false
                 }
             };
-            if (this.profileRole == "PARTNER")
-                permissions.SUBSCRIBER = {
-                    ...modules,
-                    referral: true
-                };
             return permissions[this.userRole][module];
         },
 
@@ -179,12 +154,12 @@ export default {
                         return;
                     }
                     sessionStorage.clear();
-                    this.$router.push("/signin");
+                    this.$router.push("/login");
                 })
                 .catch(error => {
                     if (error.response.data.message == "Unauthenticated.") {
                         sessionStorage.clear();
-                        this.$router.push("/signin");
+                        this.$router.push("/login");
                     }
                 });
         }
